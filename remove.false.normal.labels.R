@@ -13,7 +13,8 @@ save(list=c("brca.gene.expr", "brca.meth.full", "combinedFeatureMatrix", "brca.s
 
 #PAM50 random forest no normal 
 library(limma)
-PAM50.genes <- read.delim("../lists//pam50.txt")
+PAM50.genes <- read.delim("pam50.txt")
 PAM50.genes <- sapply(PAM50.genes$x, as.character)
 PAM50.rf <- randomForest(brca.gene.expr[,PAM50.genes], PAM50, ntree=5000, mtry=10)
-save(PAM50, PAM50.rf, file="../results_no_normal/PAM50.randomForest.RData")
+save(PAM50, PAM50.rf, file="./results/PAM50.randomForest.RData")
+print(table(PAM50))

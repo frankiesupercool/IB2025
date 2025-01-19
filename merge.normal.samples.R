@@ -35,11 +35,17 @@ names(SigClust) <- row.names(brca.subtypes)
 
 brca.meth.full.raw <- read.delim("data/BRCA.methylation.27k.450k.txt")
 
+# init brca.meth.full
+commonSamples <- intersect(colnames(brca.meth.full.raw),substr(names(PAM50),1,16))
+brca.meth.full <- brca.meth.full.raw[,commonSamples]
+rm(commonSamples)
+
 normal.samples <- intersect(colnames(brca.meth.full.raw), substr(row.names(subset(brca.subtypes, PAM50=="Normal" & Type!="tumor")), 1,16))
 brca.meth.full.normal  <- brca.meth.full.raw[,normal.samples]
 #replace probe names with gene symbols (better do this on the feature set, takes not so much time and we can distuinguish duplicates)
 meth.probe.genes <- meth.probe.id.to.gene.symbol[row.names(brca.meth.full.normal)]
-unique.meth.probe.genes <- levels(meth.probe.genes)[-1] #omitting first entry of unique.meth.probe.genes because its the empty string
+#unique.meth.probe.genes <- levels(meth.probe.genes)[-1] #omitting first entry of unique.meth.probe.genes because its the empty string
+unique.meth.probe.genes <- unique(meth.probe.genes)
 
 # take median of gene duplicates
 library(foreach)
@@ -81,4 +87,7 @@ all.equal(row.names(brca.meth.full.normal), names(PAM50))
 brca.meth.full <- brca.meth.full.normal 
 combinedFeatureMatrix <- cbind(brca.gene.expr, brca.meth.full.normal)
 
+print(PAM50)
+
 save(list=c("brca.gene.expr", "brca.meth.full", "combinedFeatureMatrix", "PAM50", "SigClust"), file="data/tcga_gene_expr_and_meth_incl_normal.RData")
+
