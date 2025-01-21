@@ -49,7 +49,8 @@ brca.meth.full <- brca.meth.full.raw[,commonSamples]
 
 #replace probe names with gene symbols (better do this on the feature set, takes not so much time and we can distuinguish duplicates)
 meth.probe.genes <- meth.probe.id.to.gene.symbol[row.names(brca.meth.full)]
-unique.meth.probe.genes <- levels(meth.probe.genes)[-1] #omitting first entry of unique.meth.probe.genes because its the empty string
+#unique.meth.probe.genes <- levels(meth.probe.genes)[-1] #omitting first entry of unique.meth.probe.genes because its the empty string
+unique.meth.probe.genes <- unique(meth.probe.genes)
 
 # take median of gene duplicates
 # extract rows for all genes and merge them into one, then bind rows together

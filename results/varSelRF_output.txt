@@ -1,0 +1,41 @@
+> source("varSelRF.R")
+Loading required package: randomForest
+randomForest 4.7-1.2
+Type rfNews() to see new features/changes/bug fixes.
+Loading required package: parallel
+
+Attaching package: ‘parallel’
+
+The following objects are masked from ‘package:snow’:
+
+    clusterApply, clusterApplyLB, clusterCall, clusterEvalQ,
+    clusterExport, clusterMap, clusterSplit, makeCluster, parApply,
+    parCapply, parLapply, parRapply, parSapply, splitIndices,
+    stopCluster
+
+[1] "small start"
+[1] "small sample done"
+[1] "gc inside varSelRFBoot papply"
+           used  (Mb) gc trigger   (Mb)  max used   (Mb)
+Ncells   421829  22.6     833312   44.6    605086   32.4
+Vcells 42341895 323.1  141498274 1079.6 137116263 1046.2
+
+      Running bootstrap iterations using cluster (can take a while)
+
+     .632+ prediction error  0.1059
+[1] "gc inside varSelRFBoot papply"
+           used  (Mb) gc trigger   (Mb)  max used   (Mb)
+Ncells   430800  23.1     833312   44.6    605086   32.4
+Vcells 43744911 333.8  141498274 1079.6 137116263 1046.2
+
+      Running bootstrap iterations using cluster (can take a while)
+
+     .632+ prediction error  0.2361
+[1] "gc inside varSelRFBoot papply"
+           used  (Mb) gc trigger   (Mb)  max used   (Mb)
+Ncells   431798  23.1     833312   44.6    605086   32.4
+Vcells 44788262 341.8  141498274 1079.6 137116263 1046.2
+
+      Running bootstrap iterations using cluster (can take a while)
+
+     .632+ prediction error  0.1014

@@ -1,0 +1,10 @@
+/data/*
+/results/*
+/.idea
+!results/brca.gene.expr.varSelRF.RData
+!results/brca.meth.full.varSelRF.RData
+!results/brca.combined.selrf.RData
+!results/brca.gene.expr.selrf.boot.RData
+!results/brca.meth.full.selrf.boot.RData
+!results/brca.combined.selrf.boot.RData
+!results/varSelRF_output.txt

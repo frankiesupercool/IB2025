@@ -12,3 +12,8 @@ The following files are included:
 * varSelRF.R: Perform random forest using the varSelRF package.
 * helper_methods.R: Neat methods for analysing the data
 * pam50.txt: The 50 genes that are part of the PAM50 classifier (gold standard).
+
++ alternative to varSelIRF.R :
+  + ragerRF.R (TODO some executions missing)
+  + randomForestRF.r
+  + helper_methods.R must be customized for their results
